@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux'
+import postsActions from '../actions/postsActions'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchPostsStart('queryStr test', 'requestId test');
+  }
   render() {
     return (
       <View>
@@ -12,4 +17,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, props) => {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchPostsStart: postsActions.fetchPostsStart,
+})(App);
