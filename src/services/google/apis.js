@@ -2,6 +2,19 @@ import * as utils from '../../utils'
 import * as Constants from '../../Constants'
 import { camelizeKeys } from 'humps'
 
+const getOauthLoginUrl = () => {
+  const API_ROOT = 'https://accounts.google.com/o/oauth2/v2/auth?';
+  const params = {
+    scope: 'email profile',
+    state: '/profile',
+    redirect_uri: Constants.HOST + '/googleOauth2Callback',
+    response_type: 'token',
+    client_id: '1070623711198-sla74ke91d17j71gp13t7f7iuk627tfk.apps.googleusercontent.com'
+  }
+  const fullUrl = utils.createUrlByParams(API_ROOT, params);
+  return fullUrl;
+}
+
 const getParamsFromHash = (hash) => {
   let params = {};
   let queryString = hash.substring(1);
@@ -24,4 +37,4 @@ const getUserInfo = (token) => {
     })
 }
 
-export {getParamsFromHash, getUserInfo};
+export {getParamsFromHash, getUserInfo, getOauthLoginUrl};

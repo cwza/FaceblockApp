@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, Text } from 'react-native';
+import { ListView, Text, View } from 'react-native';
 import { Button } from 'react-native-elements'
 
 
@@ -14,7 +14,7 @@ class Menu extends Component {
   }
   componentDidMount() {
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(['HomePage', 'MyPage'])
+      dataSource: this.state.dataSource.cloneWithRows(['HomePage', 'MyPage', 'Login'])
     });
   }
   onItemSelect = (item) => {
@@ -31,10 +31,17 @@ class Menu extends Component {
   }
   render() {
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={(item) => this.renderMenuItem(item)}
-      />
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(item) => this.renderMenuItem(item)}
+        />
+      </View>
     );
   }
 }

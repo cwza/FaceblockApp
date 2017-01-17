@@ -4,7 +4,8 @@ import Drawer from 'react-native-drawer';
 import Menu from '../components/Menu';
 import HomePage from '../containers/HomePage'
 import MyPage from '../containers/MyPage'
-import {extend} from 'lodash'
+import { extend } from 'lodash'
+import Authentication from './Authentication'
 
 const navHelper = (scene) => {
     var componentMap = {
@@ -17,6 +18,11 @@ const navHelper = (scene) => {
             title: 'MyPage',
             name: 'MyPage',
             component: MyPage
+        },
+        'Login': {
+            title: 'Login',
+            name: 'Login',
+            component: Authentication
         }
     }
     var component = componentMap[scene];
