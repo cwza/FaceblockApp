@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux'
-import SideBarIos from '../components/SideBarIos'
 
-class App extends Component {
+class HomePage extends Component {
   componentDidMount() {
   }
   render() {
     return (
-      <SideBarIos />
+      <View>
+        <Text>I am HomePage.</Text>
+      </View>
     );
   }
 }
@@ -19,4 +20,4 @@ const mapStateToProps = (state, props) => {
 }
 
 export default connect(mapStateToProps, {
-})(App);
+})(HomePage);
