@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux'
 import postsActions from '../actions/postsActions'
+import {AsyncStorage} from 'react-native';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchPostsStart('queryStr test', 'requestId test');
+    AsyncStorage.getItem('redux').then((res) => console.log(res));
   }
   render() {
     return (

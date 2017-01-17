@@ -3,7 +3,6 @@ import { Component } from 'react-native';
 import { Provider } from 'react-redux';
 
 import App from './containers/App'
-import rootSaga from './sagas'
 
 import configureStore from './store/configureStore'
 
@@ -11,7 +10,6 @@ import configureStore from './store/configureStore'
 const defaultState = {
 };
 const store = configureStore(defaultState)
-store.runSaga(rootSaga)
 
 const Main = () => {
   return (
