@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ListView } from 'react-native';
-import Button from 'react-native-button';
+import { ListView, Text } from 'react-native';
+import { Button } from 'react-native-elements'
 
 
 class Menu extends Component {
@@ -23,7 +23,10 @@ class Menu extends Component {
   }
   renderMenuItem = (item) => {
     return(
-      <Button onPress={()=> this.onItemSelect(item)}>{item}</Button>
+      <Button
+        onPress={()=> this.onItemSelect(item)}
+        title={item}
+        icon={{name: 'envira', type: 'font-awesome'}}/>
     );
   }
   render() {
